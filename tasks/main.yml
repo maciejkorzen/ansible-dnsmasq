@@ -18,5 +18,5 @@
   service:
     name: dnsmasq
     state: started
-    enabled: yes
+    enabled: true
   tags: dnsmasq

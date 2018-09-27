@@ -6,8 +6,25 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
+  - name: centos7
     image: centos:7
+    command: '/lib/systemd/systemd'
+    privileged: true
+    environment:
+      - 'container=docker'
+      - 'LC_ALL=C'
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: ubuntu1804
+    image: jrei/systemd-ubuntu:18.04
+    command: '/lib/systemd/systemd'
+    privileged: true
+    environment:
+      - 'container=docker'
+      - 'LC_ALL=C'
+      - 'DEBIAN_FRONTEND=noninteractive'
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   lint:
@@ -18,3 +35,5 @@ verifier:
   name: testinfra
   lint:
     name: flake8
+
+# vim:set:ts=2:sw=2:sts=2:et:ft=ansible:
