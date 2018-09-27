@@ -20,3 +20,6 @@ tests/
 # Python files
 *.pyo
 *.pyc
+
+# Vim swap files
+*.swp
