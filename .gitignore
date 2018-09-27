@@ -16,3 +16,7 @@ bats/
 
 # Ignore the test directory
 tests/
+
+# Python files
+*.pyo
+*.pyc
